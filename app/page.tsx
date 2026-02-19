@@ -13,11 +13,11 @@ export default function Home() {
       <section className="hero">
         <PhysicsHexCanvas className="canvas-bg" />
         <div className="container hero-content">
-          <h1>Security-first engineering for web3 companies</h1>
+          <h1>Full-stack engineering for a decentralized world</h1>
           <p>
-            We design, audit, and build smart contract systems and secure web
-            apps. Our work blends cryptography, formal methods, and
-            high-assurance engineering.
+            General software engineering contracting with deep expertise in
+            blockchain architecture, cryptography, and protocol design.
+            We build scalable, security-first systems for modern startups.
           </p>
           <a className="cta" href="#contact">
             Start a conversation
@@ -25,32 +25,111 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="section">
+      <section className="experience-ticker section">
+        <div className="carousel">
+          <div className="carousel-track">
+            {[
+              { src: "/images/vmex.jpg", name: "VMEX" },
+              { src: "/images/oyl.jpg", name: "OYL" },
+              { src: "/images/subfrost.svg", name: "Subfrost" },
+              { src: "/images/amazon-icon.svg", name: "Amazon" },
+              { src: "/images/optiver.svg", name: "Optiver" },
+              { src: "/images/jump trading.png", name: "Jump Trading" },
+              { src: "/images/houston methodist.png", name: "Houston Methodist" },
+              { src: "/images/baylor college of medicine.jpg", name: "Baylor Medicine" },
+              { name: "FBAFlexPrep" }
+            ].map((p, i) => (
+              <div key={i} className="ticker-item">
+                {p.src ? (
+                  <img src={p.src} alt={p.name} className="logo" />
+                ) : (
+                  <span className="logo-text">{p.name}</span>
+                )}
+              </div>
+            ))}
+            {/* Duplicate for seamless loop */}
+            {[
+              { src: "/images/vmex.jpg", name: "VMEX" },
+              { src: "/images/oyl.jpg", name: "OYL" },
+              { src: "/images/subfrost.svg", name: "Subfrost" },
+              { src: "/images/amazon-icon.svg", name: "Amazon" },
+              { src: "/images/optiver.svg", name: "Optiver" },
+              { src: "/images/jump trading.png", name: "Jump Trading" },
+              { src: "/images/houston methodist.png", name: "Houston Methodist" },
+              { src: "/images/baylor college of medicine.jpg", name: "Baylor Medicine" },
+              { name: "FBAFlexPrep" }
+            ].map((p, i) => (
+              <div key={"b" + i} className="ticker-item">
+                {p.src ? (
+                  <img src={p.src} alt={p.name} className="logo" />
+                ) : (
+                  <span className="logo-text">{p.name}</span>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="work" className="section">
         <div className="container">
-          <h2>Trusted by teams</h2>
-          <div className="carousel">
-            <div className="carousel-track">
-              {Array.from({ length: 10 }).map((_, i) => (
-                <img
-                  key={i}
-                  src={`https://dummyimage.com/200x60/0f1117/ffffff&text=Logo+${
-                    i + 1
-                  }`}
-                  alt={`Logo ${i + 1}`}
-                  className="logo"
-                />
-              ))}
-              {Array.from({ length: 10 }).map((_, i) => (
-                <img
-                  key={"b" + i}
-                  src={`https://dummyimage.com/200x60/0f1117/ffffff&text=Logo+${
-                    i + 1
-                  }`}
-                  alt={`Logo ${i + 1}`}
-                  className="logo"
-                />
-              ))}
-            </div>
+          <h2>Proven Experience</h2>
+          <div className="cards">
+            {[
+              {
+                name: "VMEX Finance",
+                desc: "Lending and borrowing protocol on EVM. Specialized blockchain engineering and full-stack development with Next.js.",
+                tags: ["EVM", "Next.js", "Smart Contracts"]
+              },
+              {
+                name: "OYL Corp",
+                desc: "Bitcoin smart contract infrastructure. Protocol-level engineering and comprehensive full-stack development.",
+                tags: ["Bitcoin", "Protocol Design", "Next.js"]
+              },
+              {
+                name: "Subfrost",
+                desc: "FROST multisig federation for decentralized BTC wrapping on metaprotocols. Advanced cryptography and Next.js frontend.",
+                tags: ["Cryptography", "BTC Meta", "Security"]
+              },
+              {
+                name: "Amazon",
+                desc: "Implemented a high-throughput NoSQL to SQL database conversion pipeline using Golang for cross-team data migration.",
+                tags: ["Golang", "NoSQL/SQL", "Data Pipelines"]
+              },
+              {
+                name: "Optiver",
+                desc: "High-frequency trading systems execution logic. Low-latency development in C++ and Python.",
+                tags: ["C++", "Python", "HFT"]
+              },
+              {
+                name: "Jump Trading",
+                desc: "Real-time market data systems for high-frequency trading. Built robust, low-latency data ingestion logic in C++.",
+                tags: ["C++", "Market Data", "Real-time"]
+              },
+              {
+                name: "Baylor College of Medicine",
+                desc: "Used R and statistical learning to predict biomarkers for cancer. Published peer-reviewed research papers.",
+                tags: ["R", "Bioinformatics", "Research"]
+              },
+              {
+                name: "Houston Methodist",
+                desc: "Unity-based mobile application for stroke patient assessment and neurological examination using C#.",
+                tags: ["Unity", "C#", "Healthcare"]
+              },
+              {
+                name: "FBAFlexPrep",
+                desc: "A traditional SaaS startup for Amazon FBA logistics. Scalable full-stack development and cloud architecture.",
+                tags: ["SaaS", "Full Stack", "Logistics"]
+              }
+            ].map((p, i) => (
+              <div key={i} className="card">
+                <div className="card-tags">
+                  {p.tags.map(t => <span key={t} className="tag">{t}</span>)}
+                </div>
+                <h3>{p.name}</h3>
+                <p style={{ color: "var(--muted)", fontSize: "15px", lineHeight: "1.5" }}>{p.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -59,18 +138,22 @@ export default function Home() {
         <div className="container">
           <h2>Team</h2>
           <div className="cards">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <div key={i} className="card">
+            {[
+              { name: "Kevin", role: "Partner", img: "/images/kevin.jpg" },
+              { name: "Steven", role: "Partner", img: "/images/steven.webp" },
+              { name: "Sara", role: "Software Engineer", img: "/images/sara.jpg" },
+            ].map((member, i) => (
+              <div key={i} className="card" style={{ textAlign: "center" }}>
                 <div
                   style={{
-                    height: 120,
-                    background: "#111623",
+                    height: 240,
+                    background: member.img ? `url(${member.img}) center/cover no-repeat` : "#111623",
                     borderRadius: 10,
-                    marginBottom: 12,
+                    marginBottom: 16,
                   }}
                 />
-                <strong>Member {i + 1}</strong>
-                <div style={{ color: "var(--muted)" }}>Role</div>
+                <strong>{member.name}</strong>
+                <div style={{ color: "var(--muted)", fontSize: "14px" }}>{member.role}</div>
               </div>
             ))}
           </div>
@@ -104,7 +187,7 @@ function ContactForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, message }),
       });
-    } catch {}
+    } catch { }
   }
   return (
     <form

@@ -13,24 +13,16 @@ export default function Navbar() {
         style={{
           display: "flex",
           alignItems: "center",
-          gap: 8,
+          gap: 12,
           fontWeight: 800,
           letterSpacing: 0.3,
         }}
       >
-        <span
-          style={{
-            display: "inline-block",
-            width: 10,
-            height: 10,
-            borderRadius: 3,
-            background: "linear-gradient(135deg,var(--accent),var(--accent2))",
-          }}
-        />
+        <img src="/images/cryptologic.svg" alt="CryptoLogic Logo" style={{ height: 32 }} />
         CryptoLogic LLC
       </a>
       <div className="nav-links">
-        <a href="#about">About</a>
+        <a href="#work">Work</a>
         <a href="#team">Team</a>
         <a href="#contact">Contact</a>
       </div>
