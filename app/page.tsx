@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import PhysicsHexCanvas from "@/components/PhysicsHexCanvas";
+import ContactForm from "@/components/ContactForm";
 
 export default function Home() {
   return (
@@ -177,53 +178,3 @@ export default function Home() {
   );
 }
 
-function ContactForm() {
-  async function handleSubmit(formData: FormData) {
-    "use server";
-    const email = String(formData.get("email") || "");
-    const message = String(formData.get("message") || "");
-    try {
-      await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, message }),
-      });
-    } catch { }
-  }
-  return (
-    <form
-      action={handleSubmit}
-      style={{ display: "grid", gap: 12, maxWidth: 560 }}
-    >
-      <input
-        name="email"
-        type="email"
-        required
-        placeholder="you@company.com"
-        style={{
-          padding: 12,
-          borderRadius: 10,
-          border: "1px solid rgba(255,255,255,.15)",
-          background: "#0b0d14",
-          color: "var(--fg)",
-        }}
-      />
-      <textarea
-        name="message"
-        required
-        placeholder="Tell us about your project"
-        rows={5}
-        style={{
-          padding: 12,
-          borderRadius: 10,
-          border: "1px solid rgba(255,255,255,.15)",
-          background: "#0b0d14",
-          color: "var(--fg)",
-        }}
-      />
-      <button className="cta" type="submit">
-        Send
-      </button>
-    </form>
-  );
-}
