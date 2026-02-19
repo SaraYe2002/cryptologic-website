@@ -15,9 +15,10 @@ export default function PhysicsHexCanvas({ className }: Props) {
 
     function resize() {
       const dpr = Math.min(2, window.devicePixelRatio || 1);
-      const { clientWidth: w, clientHeight: h } = canvas;
-      canvas.width = Math.max(1, Math.floor(w * dpr));
-      canvas.height = Math.max(1, Math.floor(h * dpr));
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+      canvas.width = Math.floor(w * dpr);
+      canvas.height = Math.floor(h * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
 
@@ -54,9 +55,9 @@ export default function PhysicsHexCanvas({ className }: Props) {
       const dt = Math.min(0.033, (ts - state.time) / 1000);
       state.time = ts;
 
-      const { width, height } = canvas;
-      const vw = width / (window.devicePixelRatio || 1);
-      const vh = height / (window.devicePixelRatio || 1);
+      const dpr = Math.min(2, window.devicePixelRatio || 1);
+      const vw = canvas.width / dpr;
+      const vh = canvas.height / dpr;
 
       state.angle += dt * 0.3;
 
@@ -97,9 +98,10 @@ export default function PhysicsHexCanvas({ className }: Props) {
 
       ctx.clearRect(0, 0, vw, vh);
 
-      const grd = ctx.createRadialGradient(cx, cy, hexRadius * 0.2, cx, cy, hexRadius * 1.2);
-      grd.addColorStop(0, "rgba(91,214,229,0.10)");
-      grd.addColorStop(1, "rgba(138,92,255,0.06)");
+      const grd = ctx.createRadialGradient(cx, cy, 0, cx, cy, Math.max(vw, vh));
+      grd.addColorStop(0, "rgba(91,214,229,0.12)");
+      grd.addColorStop(0.5, "rgba(138,92,255,0.06)");
+      grd.addColorStop(1, "rgba(138,92,255,0)");
       ctx.fillStyle = grd;
       ctx.fillRect(0, 0, vw, vh);
 
