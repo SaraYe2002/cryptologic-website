@@ -2,8 +2,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "CryptoLogic LLC — Secure Web3 Software Contracting",
-  description: "Security-first engineering for web3 companies.",
+  title: "CryptoLogic LLC — Specialized Engineering for Complex Domains",
+  description: "High-performance infrastructure, distributed systems, and advanced cryptography for modern enterprises.",
+  icons: {
+    icon: "/images/cryptologic.svg",
+  },
 };
 
 export default function RootLayout({

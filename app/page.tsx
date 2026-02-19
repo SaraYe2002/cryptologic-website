@@ -13,11 +13,12 @@ export default function Home() {
       <section className="hero">
         <PhysicsHexCanvas className="canvas-bg" />
         <div className="container hero-content">
-          <h1>Full-stack engineering for a decentralized world</h1>
+          <h1>Specialized engineering for complex domains</h1>
           <p>
             General software engineering contracting with deep expertise in
-            blockchain architecture, cryptography, and protocol design.
-            We build scalable, security-first systems for modern startups.
+            high-frequency trading, distributed systems, and advanced cryptography.
+            We build high-performance infrastructure and secure full-stack
+            applications for industry leaders across finance, tech, and healthcare.
           </p>
           <a className="cta" href="#contact">
             Start a conversation
